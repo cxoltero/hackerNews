@@ -21,6 +21,11 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find(params[:id])
+    if @comment
+      render json: @comment, status: :created, location: @comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
   end
 
 

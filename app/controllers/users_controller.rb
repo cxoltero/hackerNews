@@ -21,6 +21,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user
+      render json: @user, status: :created, location: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
 

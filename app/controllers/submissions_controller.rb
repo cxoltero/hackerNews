@@ -20,6 +20,12 @@ class SubmissionsController < ApplicationController
 
   def show
     @submission = Submission.find(params[:id])
+
+    if @submission
+      render json: @submission, status: :created, location: @submission
+    else
+      render json: @submission.errors, status: :unprocessable_entity
+    end
   end
 
 
