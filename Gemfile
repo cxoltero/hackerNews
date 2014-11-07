@@ -14,6 +14,8 @@ gem 'faker', '~> 1.4.3'
 
 gem 'pg'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 
 gem 'rails_12factor', group: :production
 
